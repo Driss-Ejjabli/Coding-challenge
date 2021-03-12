@@ -17,6 +17,9 @@ class CreateLineCommandsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('quantite');
             $table->float('total');
+            $table->integer('product_id')->unsigned();
+            $table->integer('command_id')->unsigned();
+
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('command_id')->references('id')->on('commands')->onDelete('cascade');
             $table->timestamps();
